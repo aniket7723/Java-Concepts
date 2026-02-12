@@ -79,6 +79,54 @@ Return 1 if there exists a subarray with length B having sum C and 0 otherwise
 <img width="691" height="678" alt="image" src="https://github.com/user-attachments/assets/cf04c539-1152-4fbf-8718-d038c3173ee0" />
 <img width="470" height="380" alt="image" src="https://github.com/user-attachments/assets/1b519218-b0c4-4833-a25c-493d39d818bd" />
 
+12) Noble Integer : Given an integer array A, find if an integer p exists in the array such that the number of integers greater than p in the array equals p.
+    <img width="696" height="607" alt="image" src="https://github.com/user-attachments/assets/0f92981d-c664-409a-a4f5-093cfddb00c5" />
+    <img width="440" height="293" alt="image" src="https://github.com/user-attachments/assets/3674212b-9684-4f36-95a0-cc67e3958746" />
+
+13)  Elements Removal : Minimum cost to Remove An Element
+    Given an integer array A of size N. You can remove any element from the array in one operation.
+    The cost of this operation is the sum of all elements in the array present before this operation.
+    Find the minimum cost to remove all elements from the array.  
+    <img width="693" height="678" alt="image" src="https://github.com/user-attachments/assets/c62c1c25-f6f7-43a7-82a5-8309a75b8e08" />
+    <img width="341" height="217" alt="image" src="https://github.com/user-attachments/assets/34c59fe2-91f9-49c1-824a-a9237497ea35" />
+
+14) Row to Column Zero : You are given a 2D integer matrix A, make all the elements in a row or column zero if the A[i][j] = 0. Specifically, make entire ith row and jth column zero.
+    <img width="709" height="690" alt="image" src="https://github.com/user-attachments/assets/1ca6dcdc-27f2-46a5-8ccc-3d5078331d4f" />
+
+    <img width="404" height="440" alt="image" src="https://github.com/user-attachments/assets/05f0d3ca-bd14-4443-bc6d-527c2f3330d3" />
+    
+15) String Toggle Case : 'H' changes to 'h', 'o' changes to 'O'
+    <img width="664" height="448" alt="image" src="https://github.com/user-attachments/assets/ca1b16a9-7f67-40f9-8c8d-6484b187354d" />
+
+    <img width="453" height="224" alt="image" src="https://github.com/user-attachments/assets/5a96c7a3-34d0-492e-a23f-1e9e7cc62d9c" />
+
+ 16) Longest Palindromic Substring : Given a string A of size N, find and return the longest palindromic substring in A.
+
+Substring of string A is A[i...j] where 0 <= i <= j < len(A)
+
+Palindrome string:
+A string which reads the same backwards. More formally, A is palindrome if reverse(A) = A.
+
+Incase of conflict, return the substring which occurs first ( with the least starting index).
+
+<img width="689" height="653" alt="image" src="https://github.com/user-attachments/assets/80ad00e2-256e-4048-a46e-4080bb4d0dc6" />
+<img width="898" height="851" alt="image" src="https://github.com/user-attachments/assets/cf45391d-a9f2-4515-89bd-3266a741f558" />
+
+17)  Rotate Matrix
+18)  replace 0 -> 1 : Length of longest consecutive ones =>  A = "111011101" , O/P : 7 && A = "111000" , O/P : 3
+19)  Swep Length of longest consecutive ones =>  A = "111011101" , O/P : 7 && A = "111000" , O/P : 3
+
+
+
+
+
+     
+
+
+
+
+ 
+
 
 
 
