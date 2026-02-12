@@ -19,4 +19,18 @@ O/P : [3, 4, 1, 2]
 
 <img width="657" height="359" alt="image" src="https://github.com/user-attachments/assets/766e03d2-a992-41e4-8a47-b5b2238014ee" />
 
+4) Range Sum Query : PrefixSum[cummelative sum] and Queries[][] [l-r].
+   I/P : A = [1, 2, 3, 4, 5], B = [[0, 3], [1, 2]]
+   O/P : [10, 5]
+
+    <img width="447" height="402" alt="image" src="https://github.com/user-attachments/assets/2d22a463-cc56-41ae-a469-c96b93dcdf89" />
+
+ 5) Special Subsequences "AG"
+     I/P : A = "ABCGAG" 
+     O/P : 3   [Subsequence "AG" is 3 times in given string, the pairs are (0, 3), (0, 5) and (4, 5)]
+
+     <img width="384" height="286" alt="image" src="https://github.com/user-attachments/assets/8c767f17-d0ad-42d6-933c-9dc0d676880d" />
+
+   
+
 
