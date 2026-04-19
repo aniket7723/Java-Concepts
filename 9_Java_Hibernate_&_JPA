@@ -1,3 +1,18 @@
 
 
 -----------------------------Java : Hibernate & JPA ------------------------------------------
+
+1) @Transactional
+2) ACID
+3) Session fectory vs session
+4) N+1 Probleam
+5) Normalization and why do we have normalization
+6) How do we achive atomicity and consistency in ACID 
+7) native query and named and jpa vs hibernate queries
+8) JPA ?
+9) cascading
+10) if we have multiple optional parameter to get the data instead of passing list and null in query how we can handle, Hibernate or JPA criteria
+11) one to one, one to many, many to many and how to handle circuler dependency
+12) @transection annotation Spring boot vs hibernate 
+13) In JPA diff level 1 and level 2 caching 
+14) Table contains some constant information the which caching we can use
