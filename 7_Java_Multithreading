@@ -1,2 +1,21 @@
 
 --------------------------------Java : Multithreading -----------------------------
+
+1) How thread is created?
+2) Thread lifecycle
+3) callable vs runnable
+4) Thread & Object class method.
+5) Deadlock & how to resolve?
+6) Synchronized? Block & Methods
+7) fork join pool
+8) Multithreading: multitasking, thread, process
+9) Start vs run
+10) Volatile
+11) Executor Service 
+12) execute() & submit()
+13) Future
+14) CompletableFuture
+15) Virtual Thread
+16) cpu scheduling
+17) race condition
+18) callable statement
