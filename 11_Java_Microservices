@@ -1,3 +1,35 @@
 
 
 -------------------------------Java : Microservices--------------------------------
+
+1) Microservices & Architecture : advantages, disadvantages
+2) Communication in microservices. Both with details
+3) API Gateway, with security, load balancing, API Gateway pattern and its advantages
+4) Service Discovery, if 100 microservices it there, Service Registry and its type , Eureka Server and Eureka Client
+5) Securing microservices, How to handle security in an API Gateway.
+6) Handling slow microservices
+7) Circuit Breaker pattern and How to implement in Spring-Boot Application, Rate limiting and Retry
+8) SAGA Pattern in distributed transactions in microservices.
+9) Event-Driven Pattern
+10) How you will test your service
+11) runtime exception : how many scenarios the RE occors in distributed syste microservices and transection
+12) 2 spring boot application, now i want to use synchronous communication API 
+13) Which methods we call RESTamplate for POST and GET
+14) Domain1.hcl.com and Domain2.hcl.com and i want only 1 domain calling
+15) How you will handle External API (Rest template, Web client , Open Feign client)
+16) How you can resolve bug in your application
+17) Diff b/w Microservice vs Monolithic Architecture
+18) How to replace tomcat with jetty in Spring-Boot Application
+19) Upstream and downstream in microservices and what is downstream service response
+20) How to design a microservice from scratch
+21) Load balancing in microservices using Spring Cloud Load Balancer.
+22) How Spring Cloud Config helps in centralized configuration management. take notes fromGoogle chat
+23) Feign Client vs WebClient: Which one to use and why.
+24) Database per service vs Shared Database: Pros and cons.
+25) JWT-based authentication and OAuth2 in microservices
+26) Observability: Logging, tracing, and monitoring best practices.
+27) Role of Prometheus and Grafana in microservices monitoring.
+28) Kubernetes deployment strategies for microservices.
+29) Blue-Green and Canary deployments in microservices.
+30) When to use WebFlux for reactive microservices.
+31) CQRS and Event Sourcing: When and why to use them.
