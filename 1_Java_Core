@@ -1,2 +1,34 @@
 
 -------------------------Java Core----------------------------
+
+1) String immutability & Why String obj immutable?
+2) Garbage collectore
+3) How gc works ? which gc u have used
+4) jvm Architecture : #class loader  , #memory area - method area, heap area, stack , pc register, native method stack, #execution engine
+5) SOLID
+6) private in interface
+7) quick sort, merge sort
+8) binery search
+9) Object class methods
+10) virtual function and pure function
+11) virtual memory , primary memory, secondary memory diff
+12) paging segmentation
+13) scheduling,scheduling algo sari
+14) run time stack machenism
+15) jdk, jre, jvm
+16) recursion fibbonacci series
+17) Array me jitne bhi fibonacci no. hai n time complexity me 
+18) tree ka left view find
+19) Tree and graph me diff
+20) Serialization vs DeSerialization
+21) Design pattern : Singleton, Tread safe Singleton (synchronization block vs @synchronization on method), Factoryabd abstract, Proxy, Strategy, builder,adaptor, observer 
+22) method chaining, constructor chaining
+23) hashcode method inside interface
+24) string buffer and builder
+25) class loading, What is class Loader and It's Type
+26) New features in java 17 and 21
+27) Yeald keyword  introduces in swift case
+28) Memory Management in detail How does java handle MM and Garbage collections
+29) How to initiate Garbage collection ? if JVM handle MM then why memory leak occur? Heap and stack memory
+30) How you can maximize the utilization of CPU
+31) 
