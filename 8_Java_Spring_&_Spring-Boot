@@ -1,3 +1,56 @@
 
 
 ---------------------------------Java : Spring & Spring-Boot-----------------------------
+
+1) @SpringBootAnnotation : @Configuration, @EnableAutoConfiguration and @ComponentScan
+2) Spring Security , How Spring Security works? : Authentication vs Authorization
+3) what is jwt? and structure of JWT
+4) JWT vs Session
+5) Password Encryption : how u can save password in db and also how u can pass in request
+6) Spring Security Architecture. having notes in Laptop
+7) How to implement JWT? and End to End flow of JWT
+8) @Transactional : cover All the scenarios from DB bank interviews
+9) Internal Use of @Transactional
+10) Rollback rule
+11) Transactional Propogation
+12) Isolation Level
+13) CSRF
+14) Security Filter Chain
+15) Filter(servlet) vs Interceptor(Spring)
+16) How to integrate 2 data base
+17) application properties and multiple profiles
+18) payload
+19) GRPC
+20) HTTP Status code
+21) Idempotency
+22) Web service
+23) AOP and provide example 
+24) @Profile, @condition on class & method, how based on application properties file value we can manage a bean to be create or not
+25) Response and request body
+26) Dependency injection : Dependency Injections Types of DI and Way to do 
+27) Spring boot starter web
+28) Configuration& bean vs Component , Service, Repository
+29) How to modify JSON response
+30) Autowired, primary, qualifire, lazy, request mapping, getmapping, response mapping, req and response body, rest vs controller, put patch post, profile, conditional
+reqparam, pathparam , query param
+32) producer and consumer in spring boot
+33) Request body convert to object and how it will know which object Content type of request body then jecson then serializer then convert to java object (Unmarshaling)
+34) Marshling and unmarshling
+35) Message resource in spring boot message.properties , if I want to throw the error for English and French how will you handle
+36) Resource bundle 
+37) Spring boot Exception Handling , Custom Exception & Globle Exception Handler
+38) Is it possible in app more then one class with @controllerAdvisable (any no we can create)
+39) CORS purpose of this
+40) How to create custom annotation 
+41) What is actuator, health, refresh, busrefresh
+42) Does actuator provide all the profiles of different environments
+43) Dependency name for Actuator
+44) Logging Concept (Deep Knowledge) & Default logging in Spring Boot
+45) Dispatcher Servlet
+46) Bean (in details) & Life Cycle & How to handle Multiple Beans at Same Time
+47) Entity (in details) & Life Cycle & persist() and Save() and SaveAndFlush()
+48) IOC container (detail knowledge like complete working style )
+49) Bean Factory
+50) Can you exclude dependencies in Spring application. if yes How would you do that
+51) How to make spring boot application more effective
+52) 
