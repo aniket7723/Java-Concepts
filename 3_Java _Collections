@@ -1,2 +1,13 @@
 
 -----------------------------Java : Collections-------------------------------
+
+1) How HashMap work internally? Default value of hashBucket , Load Factor.
+2) Concurrent hashmap?
+3) Synchronized HashMap
+4) comparable vs comparator
+5) HashMap vs Hashtable 
+6) Hashset vs treeset
+7) How get() method works in O(1) in HashSet and HashMap explain
+8) set me user define class ko store karna (override equals and hashcode)
+9) linked list : create and insert begining and ending & display
+10) Iterator vs List Iterator
