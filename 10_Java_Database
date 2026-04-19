@@ -1,2 +1,12 @@
 
 ---------------------------------Java : Database----------------------------------------
+
+1) 2nd highest sal : Limit and offset
+2) group by with example, order by, agreegate function
+3) function procedure
+4) trigger
+5) view : how we create a view & delete a view
+6) delete vs drop vs truncate
+7) constraints and types (max, count)
+8) callable statement
+9) Find out emp whose salary is greater then average salary
