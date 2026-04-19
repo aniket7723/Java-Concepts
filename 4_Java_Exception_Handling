@@ -1,2 +1,9 @@
 
 -----------------------------Java : Exception Handling----------------------------------
+
+1) What is exception? and how to handle it? exception vs Error.
+2) checked vs unchecked?
+3) Compiletime and runtime.
+4) Throw vs throws
+5) Exception propogation
+6) final, finally , finalize
