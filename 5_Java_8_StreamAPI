@@ -1,0 +1,538 @@
+
+🔶 1. What is a Stream?
+A Stream is not a data structure but a sequence of elements from a source (like a collection, array, or I/O channel) that supports aggregate operations.
+
+Collection: A Group of Objects as a single Entity, It means a single unit of objects.
+
+Stream: If we want to process the object from a collection, then we should use a Stream. Package: java. util. stream Collection to Stream: Stream S = collection. stream();
+In Stream API, operations are classified into two operation:
+
+🔶 2. Stream Lifecycle (Key Concepts)
+Source: The data source – e.g., a collection.
+
+1. Intermediate Operations:
+Transform a stream into another stream.
+Examples are: filter, map, distinct, sorted, limit etc.
+
+2. Terminal Operations:
+It produce a result and terminate the stream
+Examples are: forEach, collect, reduce, count etc.
+
+🔶 3. Stream Creation
+
+Stream<String> stream = Stream.of("one", "two", "three");
+List<String> list = Arrays.asList("one", "two", "three");
+Stream<String> listStream = list.stream();
+Stream<String> parallelStream = list.parallelStream();
+
+🔹 1. Stream.of(...)
+✅ Definition:
+Stream.of(...) is a static method in the java.util.stream.Stream class that creates a sequential stream from the given values.
+
+✅ Why We Use:
+To quickly create a stream from a few fixed elements (like literals, objects, etc.), especially when you don’t have a collection or array but want to apply stream operations.
+
+✅ Practical Example:
+Stream<String> stream = Stream.of("Java", "Python", "Go");
+        stream
+            .map(String::toUpperCase)
+            .forEach(System.out::println);
+
+🔹 2. Arrays.asList(...)
+✅ Definition:
+Arrays.asList(...) converts an array into a fixed-size List.
+
+✅ Why We Use:
+To quickly convert an array to a List so that we can use collection features like iteration, stream(), sorting, etc.
+
+✅ Practical Example:
+List<String> fruits = Arrays.asList("Apple", "Banana", "Orange");
+        fruits.forEach(System.out::println);     
+Note: The returned list is fixed-size. You can't add/remove elements.
+
+🔹 3. list.stream()
+✅ Definition:
+list.stream() is used to get a sequential stream from a list (or any collection implementing Collection interface).
+
+✅ Why We Use:
+To perform functional-style operations on collections, such as map, filter, reduce, collect, etc.
+
+✅ Practical Example:
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> squares = numbers.stream()
+                                       .map(n -> n * n)
+                                       .collect(Collectors.toList());
+
+🔹 4. list.parallelStream()
+✅ Definition:
+list.parallelStream() returns a parallel stream that can process elements concurrently using multiple threads.
+
+✅ Why We Use:
+For performance improvement when working with large datasets and when operations are independent and stateless.
+
+⚠️ Use when you’re sure that the operations are thread-safe and the overhead of parallelism doesn't outweigh its benefit.
+
+✅ Practical Example:
+List<String> names = Arrays.asList("Tom", "Jerry", "Spike", "Tyke");
+        names.parallelStream()
+             .map(String::toUpperCase)
+             .forEach(System.out::println);                                    
+Note: The output order is not guaranteed in parallel stream.
+
+Concept                -	What It Does  =  When to Use
+Stream.of(...)         -	Create stream from fixed elements  =  For a few known values
+Arrays.asList(...)     -	Convert array to List  =  When working with collections from arrays
+list.stream()          -	Sequential stream  =  Functional operations on collections
+list.parallelStream()  -	Parallel stream  =  Improve performance for large datasets
+
+Stream API Methods
+1) stream()
+2) filter()
+3) map()
+4) collect()
+5) count()
+6) sorted()
+7) max() and min()
+8) forEach()
+9) toArray()
+10) Arrays. stream()
+11) Stream. of()
+
+
+🔶 . Intermediate Operations (Lazy)
+
+🔸 filter() : 
+Syntax: Stream filteredStream = originalStream.filter(element->/*predicate */);
+
+It is used to filter the data from stream.
+And create a new stream.
+filter takes predicate as an argument, which returns Boolean types (true/false)
+It is intermediate operation.
+
+List<Integer> list=List.of(1,2,3,4,5,6);
+
+List<Integer> result = list.stream().filter(i->i%2==0).toList();
+
+list.stream()
+    .filter(s -> s.startsWith("t"))
+    .forEach(System.out::println); // Output: two, three
+
+ 🔸 map() : 
+Syntax: Stream mappedStream = originalStream.map(element->/*transformation function */);
+
+Map is used to transform each element of Stream.
+And returns a new Stream
+Map takes function as an argument, the return type based on the types of data.
+It is intermediate operation.   
+
+List<Integer> result = list.stream().map(i->i*2).toList();
+
+String[] input = {"pineswift"};
+pineswift => pine&swift
+List<String> list = Stream.of(strs).map( s -> 
+             {  int mid = s.length()/2;
+                return  s.substring(0, mid) + "&" + s.substring(mid, s.length());
+             }).collect(Collectors.toList());
+
+Add the 5 grace marks to all the failed student.
+List<Integer> graceMark = mark.stream().filter(i->i<=35).map(i->i+5).toList();     
+
+🔸 sorted()
+To sort the order of elements in the Stream.
+- Sorted according to natural order.(Asc)
+
+list.stream()
+    .sorted()
+    .forEach(System.out::println);
+
+List<Integer> mark=Arrays.asList(40,35,65,19,75,85,30,24,47);
+List<Integer> sorted_mark = mark.stream().sorted().toList();
+
+List<String> name=Arrays.asList("rajesh", "hemant", "debarjit", "srinivas");
+List<String> name_sort = name.stream().sorted().toList() ;
+
+Sorting First element length then natural
+strings.sort(Comparator.comparingInt(String::length).thenComparing(Comparator.naturalOrder()));
+
+If we want sort in descending order, then how to perform?
+if we want customize sorting order then we should go for Comparator.
+
+comparator is a Functional Interface.
+It has compare(obj1, obj2) method.
+return -ve; if obj1 has come before obj2.
+return +ve; if obj1 has come after obj2.
+return 0; if obj1 and obj2 are equal 
+For Descending Order: ( a , b ) -> (a < b) ? 1 : ( a > b ) ? -1 : 0
+➢ sorted(): According to default natural sorting order
+➢ sorted d(Comparator): For customized sorting order
+
+List<Integer> sorted_mark = mark.stream().sorted((a,b)->b.compareTo(a)).toList();
+
+Comparable Method: compareTo(obj1):
+List.stream( ).sorted( ( a , b ) -> a.compareTo( b ) ) . toList( );
+If want to reverse the sorting then put the "-" symbol as below
+List.stream( ).sorted (( a , b) -> -a.compareTo(b)). toList();
+
+Q: Sort the element based on the length of the ArrayList
+List<String> sortedString = list.stream().sorted(Comparator.comparingInt(String :: length)). toList();
+Using Comparator =>
+Comparator<String> c = (a, b) -> {
+int l1 = a.length();
+int l2 = b.length();
+return Integer.compare( l1, l2 );
+};
+
+Q. Sort the element based on the length of the ArrayList in reverse order
+Comparator<String> c = (a, b) -> {
+int l1 = a.length();
+int l2 = b.length();
+return Integer.compare( l2, l1 );
+};
+List<String> sortedString = list.stream().sorted(c). toList();
+
+🔸 distinct()
+Stream.of(1, 2, 2, 3, 4, 4)
+      .distinct()
+      .forEach(System.out::println); // Output: 1 2 3 4
+
+🔸 limit() and skip()
+list.stream().limit(2).forEach(System.out::println);
+list.stream().skip(1).forEach(System.out::println);
+
+
+🔶 5. Terminal Operations
+🔸 forEach() : 
+То perform an action for each element of this stream
+It is terminal operation.
+It’s similar to for loop
+
+one way
+List<Integer> list = Arrays.asList(10,20,50,54,12,11,94);
+list.stream().forEach(i->System.out.print(i));
+
+another way
+ist.forEach(System.out::println);
+
+🔸 collect() - Converts back to List, Set, Map, etc.
+Transforms a stream of elements into a different data structure, such as a List, Set, or Map.
+Enables grouping, partitioning, and other complex transformations of stream elements.
+
+Collectors.toList()
+Collectors.toSet()
+Collectors.toMap()
+Collectors.groupingBy()
+Collectors.partitioningBy()
+
+
+List<String> upper = list.stream()
+                         .map(String::toUpperCase)
+                         .collect(Collectors.toList());
+
+String s = "Java Developer"; Output : e->3 max freq.
+Map<Character, Long> resultMap = s.chars().mapToObj(c1 -> (char) c1)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		Entry<Character, Long> maxEntry = resultMap.entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
+		System.out.println(maxEntry);
+
+🔸 count() : 
+To count the number of elements in the Stream
+
+List<Integer> mark=Arrays.asList(40,35,65,19,75,85,30,24,47);
+long failed_std = mark.stream().filter(i-> i<35).count();
+
+🔸 min(), max()
+Both method takes the comparator as an argument.
+And based on the comparator result it will return the value.
+➢ min (comparator) will return 1st element from the comparator result;
+➢ max (comparator) will return last element from the comparator result;
+
+List<Integer> list = Arrays.asList(10,20,50,54,12,11,94);
+Integer min = list.stream().min((a,b)->Integer.compare(a,b)).get();
+Integer max= list.stream().max((a,b)->Integer.compare(a,b)).get();
+
+List<String> list = Arrays.asList("A", "AAA", "BB", "BBBBB", "AAAAAA");
+Comparator<String> c = (a, b) -> {
+int l1 = a.length();
+int l2 = b.length();
+return Integer.compare( l1, l2 );
+};
+String min = list.stream().min(c).get();
+String max = list.stream().max(c).get();
+
+🔸 reduce() – Aggregates elements into a single result.
+int sum = Stream.of(1, 2, 3, 4)
+                .reduce(0, Integer::sum); // Output: 10
+
+
+Stream with Object : 
+List<String> highEarners = employees.stream()
+    .filter(e -> e.getDept().equals("IT") && e.getSalary() > 85000)
+    .map(Employee::getName)
+    .collect(Collectors.toList());
+
+🔸 toArray():
+It returns an array containing elements of this stream.
+It is a terminal operation. 
+
+Q: How to convert Stream of object into Array?
+Integer[ ] i=list. stream ( ). toArray (Integer[ ]::new);
+
+Q: How to convert Array to Stream?
+Integer[ ] arr={10,20,30,40,50};
+Arrays.stream(arr);
+
+Q: How to find even no from an Array ?
+Integer[ ] arr={10,20,30,40,50};
+Arrays.stream(arr).filter(i->i%2==0).forEach(System.out::println);
+
+
+🔸 Stream. of (args):
+Arguments should be any type either arrays or any group of elements
+
+Stream<?> items=stream.of(9 ,44, “aaa”, 46, “bb”, 56);
+Items.forEach(System.out::println);
+
+🔸 Arrays.stream()
+
+int[] arr={10,20,30,40,50};
+Arrays.stream(arr) it returns a sequential IntStream 
+Arrays.stream(arr).boxed()  return the stream consist elements of this stream each box to an Integer
+
+🔶 Grouping and Partitioning
+
+🔸 Grouping by Department
+Map<String, List<Employee>> groupByDept = employees.stream()
+    .collect(Collectors.groupingBy(Employee::getDept));
+
+🔸 Partitioning by Salary > 100000
+Map<Boolean, List<Employee>> partitioned = employees.stream()
+    .collect(Collectors.partitioningBy(e -> e.getSalary() > 100000));
+
+
+Questions :
+
+1) Find the employee who has maximum salary?
+Employee maxSalary = emp.stream().max((a, b) ->
+Double.compare(a.getSalary(), b.getSalary())).get();
+
+Employee maxSalary1 = emp.stream().
+max(Comparator.comparingDouble(Employee::getSalary)).get();
+
+2) Find the employee whose has secônd highest salary?
+Optional<Employee> secMaxSal = emp.stream().
+sorted((a, b) -> Double.compare(b.getSalary(), a.getSalary()))
+.skip(1).findFirst();
+
+3) Find the employee who is most senior based on joining date?
+Optional<Employee> senior = emp.stream()
+.min((a, b) -> a.getJoiningdate().compareTo(b.getJoiningdate()));
+
+4) Count the employee based on the gender?
+Map<String, Long> gender = emp.stream()
+.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+System.out.println(gender);
+
+
+5) Where we use predicate in stream API
+Answer => In Java's Stream API, a Predicate is used as a functional interface to define a condition that evaluates to either true or false. It's primarily employed in intermediate operations like filter() to selectively include or exclude elements from the stream based on the specified condition.
+
+a. Filtering elements:filter() operation takes a Predicate as an argument and returns a new stream containing only the elements that satisfy the predicate's condition.
+
+ List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+    List<Integer> evenNumbers = numbers.stream()
+        .filter(n -> n % 2 == 0) // Predicate: check if a number is even
+        .collect(Collectors.toList());
+
+b. Matching elements: anyMatch(), allMatch(), and noneMatch() operations use a Predicate to check if any, all, or none of the elements in the stream match the given condition, respectively.
+
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+    boolean hasNameStartingWithA = names.stream()
+        .anyMatch(name -> name.startsWith("A")); // Predicate: check if a name starts with "A"
+
+c. Combining predicates: You can combine multiple Predicate instances using methods like and(), or(), and negate() to create more complex conditions.
+
+ List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+    Predicate<Integer> isEven = n -> n % 2 == 0;
+    Predicate<Integer> isGreaterThanTwo = n -> n > 2;
+    List<Integer> result = numbers.stream()
+        .filter(isEven.and(isGreaterThanTwo)) // Combined predicate
+        .collect(Collectors.toList());
+
+Predicate enables you to express conditions concisely and apply them to stream elements for filtering, matching, or other conditional operations.
+
+
+6) What is use of Filter function
+Answer => The filter() function in Java 8's Stream API is used to selectively extract elements from a stream based on a specified condition. It acts as an intermediate operation, meaning it processes the stream and returns a new stream containing only the elements that satisfy the given condition. This condition is defined by a Predicate, a functional interface that represents a boolean-valued function.
+The filter() method takes a Predicate as an argument. For each element in the stream, the Predicate is applied. If the Predicate returns true, the element is included in the resulting stream; otherwise, it is excluded.
+
+7) Difference b/w Flat Map and Map
+Answer => The map and flatMap methods are intermediate operations in Java's Stream API, used for transforming data within a stream. They differ in how they handle the transformation and the structure of the resulting stream.
+map:
+It transforms each element in the stream to another element using a provided function. For each input element, it produces exactly one output element, resulting in a one-to-one mapping. The output stream has the same number of elements as the input stream.
+flatMap:
+It transforms each element in the stream to a stream of zero or more elements using a provided function. It then flattens these individual streams into a single stream. This results in a one-to-many or one-to-zero mapping. The output stream can have a different number of elements than the input stream.
+
+8) How to sort List - comparator vs comparable impl
+Answer => Sorting a list of objects in Java can be achieved using either the Comparable or the Comparator interface. They serve different purposes and are used in distinct scenarios.
+Comparable
+The Comparable interface is implemented by the class whose objects need to be sorted. It defines a natural ordering for the objects of that class. The compareTo() method is the single method in this interface, and it compares the current object with another object of the same type.
+
+ @Override
+    public int compareTo(Student other) {
+        return Integer.compare(this.rollNo, other.rollNo);
+    }
+
+Comparator
+The Comparator interface is used to define custom sorting logic that is external to the class of the objects being sorted. It is particularly useful when you need to sort objects based on different criteria or when you don't have control over the class definition. The compare() method takes two objects as arguments and returns an integer indicating their relative order.
+
+@Override
+    public int compare(Student s1, Student s2) {
+        return s1.getName().compareTo(s2.getName());
+    }
+}
+
+Comparable is implemented by the class itself, defining its natural sort order, while 
+Comparator is a separate class that defines a sorting strategy.
+
+Comparable is suitable when there's only one way to sort objects, and it's inherent to the object's nature. Comparator is used when you need multiple sorting criteria or when the class doesn't implement Comparable.
+
+Methods:
+Comparable has compareTo(), while Comparator has compare().
+Sorting:
+Collections.sort() with a list argument uses Comparable, while with a list and a Comparator argument, it uses the Comparator.
+Choosing Between Them
+Use Comparable when the sorting logic is inherent to the object and doesn't change.
+Use Comparator when you need multiple sorting rules or when sorting objects that don't implement Comparable. 
+
+
+9) Find the unique cities from a list of Traders class with field city	
+Answer => List<Traders> list = new ArrayList<>();     
+     List<String> uniqueList = list.stream().map(Traders::getCity).distinct().collect(Collectors.toList());     
+     List<Trader> names = list.stream().filter(trader -> trader.getCity.equals("Delhi").collect(Collector.toList());
+
+10)  stream api  terminating functions in java
+Answer => In Java's Stream API, terminating functions, also known as terminal operations, are methods that produce a result or a side effect, effectively ending the stream pipeline. They trigger the execution of the preceding intermediate operations and return a final value or perform an action. Here's a breakdown of common terminating functions:
+
+forEach(Consumer<? super T> action):
+Applies the given action to each element of the stream. It does not return any value.
+
+toArray():
+Returns an array containing the elements of the stream.
+
+reduce(BinaryOperator<T> accumulator):
+Combines the elements of the stream into a single result using the provided accumulator function.
+
+collect(Collector<? super T, A, R> collector):
+Accumulates elements of the stream into a collection or summarizes them according to some other criteria.
+
+min(Comparator<? super T> comparator) / max(Comparator<? super T> comparator):
+Returns the minimum/maximum element of the stream based on the provided comparator.
+
+count():
+Returns the number of elements in the stream.
+
+anyMatch(Predicate<? super T> predicate) / allMatch(Predicate<? super T> predicate) / noneMatch(Predicate<? super T> predicate):
+Checks if any, all, or none of the elements in the stream match the given predicate, respectively.
+
+findFirst() / findAny():
+Returns the first element or any element from the stream, respectively, wrapped in an Optional.
+These terminating functions are essential for retrieving the final result from a stream pipeline or performing actions based on the processed elements. They mark the end of the stream operation and produce a concrete output.
+
+11) stream api  Intermediate functions in java   collect and Collectors methods conditions like groupby
+Answer => Intermediate operations in Java Stream API transform or filter the stream without producing a result. They are lazy and always return a new stream. Common intermediate operations include:
+
+a. filter(Predicate predicate): Returns a stream consisting of the elements that match the given predicate.
+b. map(Function mapper): Returns a stream consisting of the results of applying the given function to the elements of the stream.
+c. flatMap(Function<T, Stream<R>> mapper): Returns a stream consisting of the results of replacing each element of the stream with the contents of a mapped stream produced by applying the provided mapping function to each element.
+d. distinct(): Returns a stream consisting of the distinct elements (according to equals() method) of this stream.
+e. sorted(): Returns a stream consisting of the elements of this stream, sorted according to natural order.
+f. sorted(Comparator comparator): Returns a stream consisting of the elements of this stream, sorted according to the provided Comparator.
+g. peek(Consumer action): Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as it is consumed from the resulting stream.
+h. limit(long maxSize): Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+i. skip(long n): Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+
+The collect() method is a terminal operation that gathers the elements of a stream into a collection or summarizes them. It takes a Collector as an argument, which specifies how the elements should be collected. The Collectors class provides a variety of predefined collectors for common operations, including:
+
+a. toList(): Collects elements into a List.
+b. toSet(): Collects elements into a Set.
+c. toMap(Function keyMapper, Function valueMapper): Collects elements into a Map, using the provided functions to extract keys and values.
+d. groupingBy(Function classifier): Groups elements into a Map based on the result of the classifier function.
+e. groupingBy(Function classifier, Collector downstream): Groups elements into a Map and applies a downstream collector to each group.
+f. partitioningBy(Predicate predicate): Partitions elements into a Map of two lists based on the result of the predicate.
+g. counting(): Returns the count of elements.
+summingInt(ToIntFunction mapper): Returns the sum of elements after applying the mapper function.
+h. averagingInt(ToIntFunction mapper): Returns the average of elements after applying the mapper function.
+i. minBy(Comparator comparator): Returns the minimum element based on the provided comparator.
+j. maxBy(Comparator comparator): Returns the maximum element based on the provided comparator.
+k. joining(): Concatenates elements into a String.
+
+The groupingBy() collector is particularly useful for grouping elements based on a condition. For example, to group a list of people by their age, you could use:
+
+List<Person> people = // ...
+Map<Integer, List<Person>> peopleByAge = people.stream()
+    .collect(Collectors.groupingBy(Person::getAge));
+
+    This will result in a Map where the keys are ages and the values are lists of people with that age.
+
+12) what us stream. what is Collector and give example
+Answer => In Java, a Stream is a sequence of elements that supports various operations like filtering, mapping, and reducing. A Collector is a function that accumulates elements of a stream into a result container (like a list, set, or map). Collectors are used with the Stream.collect() method to gather the results of stream operations. 
+
+ List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+ Stream<Integer> stream = numbers.stream();
+  List<Integer> evenNumbers = stream.filter(number -> number % 2 == 0)
+                                      .collect(Collectors.toList());
+
+ In this example, Collectors.toList() is used to collect the even numbers from the stream into a new list called evenNumbers. The filter operation is an intermediate operation that selects elements based on a condition, while collect is a terminal operation that gathers the results
+
+ 13) What is difference b/w map and flatmap in general case also in stream also
+ Answer => 
+ In both general and stream contexts, map transforms each element in a collection to a single new element, while flatMap transforms each element into a stream of zero or more elements and then flattens the result. In essence, map is a one-to-one transformation, whereas flatMap allows for a one-to-many transformation. 
+
+ map:
+Applies a function to each element of a collection (or stream) and returns a new collection (or stream) with the transformed elements.
+flatMap:
+Applies a function to each element, but the function returns a collection (or stream) of zero or more elements. Then, flatMap flattens this collection of collections into a single collection (or stream). 
+
+map:
+Transforms each element in a stream into another element of the same or a different type.
+flatMap:
+Transforms each element in a stream into a stream, and then flattens the resulting stream of streams into a single stream. 
+
+Examples:
+map:
+If you have a list of strings and want to convert them to uppercase, map would be used. Each string is converted to uppercase, and a new list (or stream) of uppercase strings is returned.
+flatMap:
+If you have a list of lists, and you want to create a single stream of all elements from all the sublists, flatMap would be used. Each sublist is transformed into a stream, and then the resulting stream of streams is flattened into a single stream. 
+
+14) Write a program to group employees using dept Id without using stream api
+Answer => 
+public static Map<Integer, List<Employee>> groupEmployeesByDeptId(List<Employee> employees) {
+        Map<Integer, List<Employee>> groupedEmployees = new HashMap<>();
+
+        for (Employee employee : employees) {
+            int deptId = employee.getDeptId();
+            if (!groupedEmployees.containsKey(deptId)) {
+                groupedEmployees.put(deptId, new ArrayList<>());
+            }
+            groupedEmployees.get(deptId).add(employee);
+        }
+
+        return groupedEmployees;
+    }
+
+    Map<Integer, List<Employee>> employeesByDept = groupEmployeesByDeptId(employees);
+
+        for (Map.Entry<Integer, List<Employee>> entry : employeesByDept.entrySet()) {
+            int deptId = entry.getKey();
+            List<Employee> employeeList = entry.getValue();
+
+            System.out.println("Department ID: " + deptId);
+            for (Employee employee : employeeList) {
+                System.out.println("  - " + employee.getName());
+            }
+        }
+
+        
+
+
+
