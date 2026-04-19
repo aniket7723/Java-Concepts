@@ -1,2 +1,19 @@
 
---------------------------------Java : 8---------------------------------
+--------------------------------Java : 8 features---------------------------------
+
+1) Explain all the features in Java 8.
+2) Stream Api. Collection vs Stream Api.
+3) map vs flatmap().
+4) stream vs parallel stream
+5) Why Default & Static Method, Java 8 Static and default method deep scenariobased
+6) Lambda expression and functional interface
+7) program using lembda ex. jo salary ko 10% increase karke return kare 
+8) max salary from Employee object using stream 
+9) String me jo caracter repeat ho rahe hai unhe frequency wise sort karna
+10) Stream API all question : map, flat map, collectors, reduce
+11) functional interfaces all with examples 
+12) anonynous class 
+13) if you know implementation then go with method referance or not know implementation go with lembda
+14) Method reference
+15) Second highest salary from EMP
+16) Find out emp whose salary is greater then average salary
