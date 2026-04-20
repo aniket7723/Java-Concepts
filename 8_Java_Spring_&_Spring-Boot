@@ -53,4 +53,5 @@ reqparam, pathparam , query param
 49) Bean Factory
 50) Can you exclude dependencies in Spring application. if yes How would you do that
 51) How to make spring boot application more effective
-52) 
+52) Internal Working of Spring Boot Application. what actually happens when we Start Application
+53) 
